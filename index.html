@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f45">
+  <title>Brazil Quiz Adventure</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-flag" aria-hidden="true">🇧🇷</span>
+        <div>
+          <p class="eyebrow">A BRAZILIAN TRIVIA CHALLENGE</p>
+          <h1>Brazil Quiz Adventure</h1>
+        </div>
+      </div>
+      <div class="top-pill">🏆 <span id="score">0</span> points</div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="tag">YOUR JOURNEY STARTS HERE</span>
+        <h2>Climb your way to<br><span>Christ the Redeemer!</span></h2>
+        <p>Answer 15 questions about Brazil. Every correct answer moves you one step closer to the top.</p>
+        <div class="hero-stats">
+          <div><strong id="step-count">0 / 15</strong><small>STEPS CLIMBED</small></div>
+          <div><strong id="accuracy">—</strong><small>ACCURACY</small></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of Christ the Redeemer above Rio de Janeiro">
+        <div class="sun"></div>
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-front"></div>
+        <div class="city">🏘️ 🏢 🏘️</div>
+        <div class="statue">✝️</div>
+        <div class="art-label">RIO DE JANEIRO, BRAZIL</div>
+      </div>
+    </section>
+
+    <section class="board-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE CLIMB</p>
+          <h3>Your path to the summit</h3>
+        </div>
+        <span class="level-badge" id="level-badge">STARTING POINT</span>
+      </div>
+      <div class="board-layout">
+        <div class="board-side">
+          <div class="summit">
+            <span class="summit-icon">🏆</span>
+            <strong>THE SUMMIT</strong>
+            <small>Christ the Redeemer</small>
+          </div>
+          <div class="stairs" id="stairs" aria-label="Progress staircase"></div>
+          <div class="start-marker">🚩 START</div>
+        </div>
+        <aside class="progress-panel">
+          <div class="progress-title"><span>CLIMB PROGRESS</span><strong id="progress-percent">0%</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          <div class="progress-note" id="progress-note">You are at the starting point. Let's begin!</div>
+          <div class="mini-facts">
+            <div><span class="fact-icon">🌴</span><div><b>15</b><small>Questions</small></div></div>
+            <div><span class="fact-icon">⭐</span><div><b>10</b><small>Points per answer</small></div></div>
+            <div><span class="fact-icon">🎯</span><div><b>1</b><small>Player</small></div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="question-card" id="question-card">
+      <div class="question-topline">
+        <span class="question-number" id="question-number">QUESTION 1 OF 15</span>
+        <span class="category" id="category">BRAZILIAN BASICS</span>
+      </div>
+      <h3 id="question-text">What is the official language of Brazil?</h3>
+      <p class="instruction">Read the question and choose the correct answer.</p>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+      <div class="question-actions">
+        <span class="hint">💡 Correct answer = +1 step and 10 points</span>
+        <button class="primary-btn" id="next-btn" disabled>Next question <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="bottom-note">
+      <span>🎉</span>
+      <p><strong>Ready for the challenge?</strong> Explore Brazil one question at a time!</p>
+    </section>
+
+    <footer>MADE FOR CURIOUS EXPLORERS <span>•</span> 🇧🇷 BRAZIL QUIZ ADVENTURE</footer>
+  </main>
+
+  <div class="modal hidden" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
+    <div class="modal-card">
+      <div class="confetti-icon" id="result-icon">🎉</div>
+      <p class="eyebrow">ADVENTURE COMPLETED</p>
+      <h2 id="result-title">You reached the top!</h2>
+      <p id="result-message">Amazing work! You completed the Brazil Quiz Adventure.</p>
+      <div class="result-stats">
+        <div><strong id="final-score">0</strong><small>POINTS</small></div>
+        <div><strong id="final-correct">0/15</strong><small>CORRECT</small></div>
+        <div><strong id="final-accuracy">0%</strong><small>ACCURACY</small></div>
+      </div>
+      <button class="primary-btn restart-btn" id="restart-btn">Play again ↻</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
