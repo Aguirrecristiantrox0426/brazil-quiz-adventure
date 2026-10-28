@@ -1,114 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#087f45">
   <title>Brazil Quiz Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="game-shell">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-flag" aria-hidden="true">🇧🇷</span>
-        <div>
-          <p class="eyebrow">A BRAZILIAN TRIVIA CHALLENGE</p>
-          <h1>Brazil Quiz Adventure</h1>
-        </div>
-      </div>
-      <div class="top-pill">🏆 <span id="score">0</span> points</div>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Brazil Quiz Adventure home"><span class="flag">🇧🇷</span><span><small>EXPLORE • LEARN • CLIMB</small><b>Brazil Quiz Adventure</b></span></a>
+    <div class="header-actions"><span class="pill">🏆 <b id="header-score">0</b> pts</span><button class="text-btn" id="leaderboard-shortcut">Leaderboard</button></div>
+  </header>
 
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="tag">YOUR JOURNEY STARTS HERE</span>
-        <h2>Climb your way to<br><span>Christ the Redeemer!</span></h2>
-        <p>Answer 15 questions about Brazil. Every correct answer moves you one step closer to the top.</p>
-        <div class="hero-stats">
-          <div><strong id="step-count">0 / 15</strong><small>STEPS CLIMBED</small></div>
-          <div><strong id="accuracy">—</strong><small>ACCURACY</small></div>
-        </div>
+  <main class="container">
+    <section id="welcome-screen" class="welcome-screen">
+      <div class="welcome-copy">
+        <span class="kicker">YOUR BRAZILIAN ADVENTURE STARTS HERE</span>
+        <h1>Explore Brazil.<br><em>Reach the top!</em></h1>
+        <p>Travel through five iconic Brazilian locations, answer 15 questions and climb your way to Christ the Redeemer.</p>
+        <div class="welcome-features"><span>🗺️ 5 scenic stages</span><span>❓ 15 questions</span><span>⏱️ Race against time</span></div>
       </div>
-      <div class="hero-art" aria-label="Illustration of Christ the Redeemer above Rio de Janeiro">
-        <div class="sun"></div>
-        <div class="mountain mountain-back"></div>
-        <div class="mountain mountain-front"></div>
-        <div class="city">🏘️ 🏢 🏘️</div>
-        <div class="statue">✝️</div>
-        <div class="art-label">RIO DE JANEIRO, BRAZIL</div>
+      <div class="welcome-visual">
+        <div class="welcome-sun"></div><div class="welcome-mountain"></div><div class="welcome-statue">✝</div>
+        <span class="visual-caption">RIO DE JANEIRO · BRAZIL</span>
       </div>
+      <form id="player-form" class="registration-card">
+        <div><span class="kicker">BEFORE YOU CLIMB</span><h2>Player registration</h2><p>Enter your details to save your adventure.</p></div>
+        <label for="player-name">Your name</label>
+        <input id="player-name" name="playerName" maxlength="40" placeholder="Enter your name" required>
+        <label for="player-nickname">Player nickname</label>
+        <input id="player-nickname" name="nickname" maxlength="20" placeholder="Choose a nickname" required>
+        <button class="primary-btn" type="submit">Start adventure <span>→</span></button>
+        <small class="privacy-note">Your name and game result will appear in the public leaderboard.</small>
+      </form>
     </section>
 
-    <section class="board-card">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">THE CLIMB</p>
-          <h3>Your path to the summit</h3>
+    <section id="game-screen" class="hidden">
+      <div class="game-heading">
+        <div><span class="kicker">YOUR JOURNEY</span><h2 id="greeting">Let's climb!</h2></div>
+        <div class="timer-card"><small>ELAPSED TIME</small><strong id="timer">00:00</strong><span id="penalty-label">+00:00 penalty</span></div>
+      </div>
+
+      <section class="journey-card">
+        <div class="scene-image" id="scene-image">
+          <div class="scene-overlay"><span class="stage-tag" id="stage-tag">STAGE 1 OF 5</span><h3 id="scene-title">Copacabana Beach</h3><p id="scene-description">Your adventure begins by the famous coast of Rio.</p></div>
         </div>
-        <span class="level-badge" id="level-badge">STARTING POINT</span>
-      </div>
-      <div class="board-layout">
-        <div class="board-side">
-          <div class="summit">
-            <span class="summit-icon">🏆</span>
-            <strong>THE SUMMIT</strong>
-            <small>Christ the Redeemer</small>
-          </div>
-          <div class="stairs" id="stairs" aria-label="Progress staircase"></div>
-          <div class="start-marker">🚩 START</div>
-        </div>
-        <aside class="progress-panel">
-          <div class="progress-title"><span>CLIMB PROGRESS</span><strong id="progress-percent">0%</strong></div>
-          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-          <div class="progress-note" id="progress-note">You are at the starting point. Let's begin!</div>
-          <div class="mini-facts">
-            <div><span class="fact-icon">🌴</span><div><b>15</b><small>Questions</small></div></div>
-            <div><span class="fact-icon">⭐</span><div><b>10</b><small>Points per answer</small></div></div>
-            <div><span class="fact-icon">🎯</span><div><b>1</b><small>Player</small></div></div>
-          </div>
-        </aside>
-      </div>
+        <div class="journey-footer"><div class="progress-copy"><b id="progress-label">Step 1 of 15</b><span id="progress-percent">0% completed</span></div><div class="progress-track"><div id="progress-fill"></div></div><div id="stage-dots" class="stage-dots"></div></div>
+      </section>
+
+      <section class="quiz-card">
+        <div class="quiz-meta"><span id="question-counter">QUESTION 1 OF 15</span><span class="category" id="question-category">BRAZILIAN BASICS</span></div>
+        <h2 id="question-text">What is the official language of Brazil?</h2>
+        <p class="instruction">Choose one answer. A wrong answer adds 10 seconds to your final time.</p>
+        <div id="answers" class="answers"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <div class="quiz-bottom"><span>✅ Correct: +0 sec &nbsp; ❌ Incorrect: +10 sec</span><button id="next-button" class="primary-btn" disabled>Next question →</button></div>
+      </section>
     </section>
 
-    <section class="question-card" id="question-card">
-      <div class="question-topline">
-        <span class="question-number" id="question-number">QUESTION 1 OF 15</span>
-        <span class="category" id="category">BRAZILIAN BASICS</span>
+    <section id="results-screen" class="hidden results-screen">
+      <div class="finish-hero"><div class="finish-icon">🏆</div><span class="kicker">ADVENTURE COMPLETED</span><h2 id="finish-title">You reached the summit!</h2><p id="finish-copy">Congratulations! You made it to Christ the Redeemer.</p></div>
+      <div class="result-grid">
+        <div><small>YOUR FINAL TIME</small><strong id="final-time">00:00</strong></div>
+        <div><small>TIME PENALTY</small><strong id="final-penalty">00:00</strong></div>
+        <div><small>CORRECT ANSWERS</small><strong id="final-correct">0 / 15</strong></div>
       </div>
-      <h3 id="question-text">What is the official language of Brazil?</h3>
-      <p class="instruction">Read the question and choose the correct answer.</p>
-      <div class="answers" id="answers"></div>
-      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
-      <div class="question-actions">
-        <span class="hint">💡 Correct answer = +1 step and 10 points</span>
-        <button class="primary-btn" id="next-btn" disabled>Next question <span>→</span></button>
-      </div>
+      <p id="save-status" class="save-status">Saving your result…</p>
+      <div class="result-actions"><button class="primary-btn" id="view-ranking">View leaderboard</button><button class="secondary-btn" id="play-again">Play again</button></div>
     </section>
 
-    <section class="bottom-note">
-      <span>🎉</span>
-      <p><strong>Ready for the challenge?</strong> Explore Brazil one question at a time!</p>
+    <section id="leaderboard-screen" class="hidden data-screen">
+      <div class="section-title"><div><span class="kicker">THE FASTEST EXPLORERS</span><h2>🏆 Global leaderboard</h2></div><button class="secondary-btn" id="back-button">Back to game</button></div>
+      <p class="muted">Players are ranked by their final time, including penalties. Only completed adventures are shown.</p>
+      <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Player</th><th>Correct</th><th>Penalty</th><th>Final time</th></tr></thead><tbody id="leaderboard-body"><tr><td colspan="5">Loading results…</td></tr></tbody></table></div>
+      <div class="section-title history-title"><div><span class="kicker">PAST ADVENTURES</span><h2>Player history</h2></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Player</th><th>Date</th><th>Correct</th><th>Final time</th></tr></thead><tbody id="history-body"><tr><td colspan="4">Loading history…</td></tr></tbody></table></div>
+      <p class="data-note" id="data-note"></p>
     </section>
-
-    <footer>MADE FOR CURIOUS EXPLORERS <span>•</span> 🇧🇷 BRAZIL QUIZ ADVENTURE</footer>
   </main>
 
-  <div class="modal hidden" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
-    <div class="modal-card">
-      <div class="confetti-icon" id="result-icon">🎉</div>
-      <p class="eyebrow">ADVENTURE COMPLETED</p>
-      <h2 id="result-title">You reached the top!</h2>
-      <p id="result-message">Amazing work! You completed the Brazil Quiz Adventure.</p>
-      <div class="result-stats">
-        <div><strong id="final-score">0</strong><small>POINTS</small></div>
-        <div><strong id="final-correct">0/15</strong><small>CORRECT</small></div>
-        <div><strong id="final-accuracy">0%</strong><small>ACCURACY</small></div>
-      </div>
-      <button class="primary-btn restart-btn" id="restart-btn">Play again ↻</button>
-    </div>
-  </div>
+  <footer>🇧🇷 BRAZIL QUIZ ADVENTURE <span>•</span> MADE FOR CURIOUS EXPLORERS</footer>
 
+  <!-- Supabase client. Add your project URL and anon key in supabase-config.js. -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
