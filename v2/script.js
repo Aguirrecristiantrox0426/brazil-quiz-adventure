@@ -24,15 +24,15 @@ const QUESTIONS = [
 
 /*
  * Paths are relative to v2/index.html.
- * There are currently four uploaded photos for five stages. The Corcovado
- * approach and summit both use the Christ the Redeemer photo until a fifth,
- * separate Corcovado-trail image is added to assets.
+ * Each stage uses an image uploaded in v2/assets.
+ * The Corcovado approach uses corcovado trail.png and the summit uses
+ * cristo redentor.jpg.
  */
 const STAGES = [
  {name:"Copacabana Beach",desc:"Your adventure begins beside Rio's famous coastline.",image:"assets/rio%20de%20janeiro.jpg"},
  {name:"Sugarloaf Mountain",desc:"Keep climbing and discover one of Rio's best-known landmarks.",image:"assets/Sugarloaf%20Mountain.jpg"},
  {name:"Tijuca National Park",desc:"Travel through the lush green nature of Brazil.",image:"assets/tropical%20forest.jpg"},
- {name:"Corcovado Mountain",desc:"The summit is getting closer. Continue your climb toward the famous statue.",image:"assets/cristo%20redentor.jpg"},
+ {name:"Corcovado Mountain",desc:"The summit is getting closer. Continue your climb toward the famous statue.",image:"assets/corcovado%20trail.png"},
  {name:"Christ the Redeemer",desc:"You made it to the top! Enjoy the view over Rio de Janeiro.",image:"assets/cristo%20redentor.jpg"}
 ];
 
