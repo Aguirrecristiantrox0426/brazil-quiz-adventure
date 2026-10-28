@@ -7,5 +7,5 @@
 // It is safe to use the Publishable key with correctly configured RLS policies.
 // NEVER put a secret key, service_role key, or database password in this file.
 
-window.SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
-window.SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+window.SUPABASE_URL = "https://cbpbpsfdnfnglkvrhzjn.supabase.co";
+window.SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Z21twuXr33j1zZe5hOLV1g_BBXv-6u7";
